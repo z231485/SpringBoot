@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!--jdbc驱动包绝对路径-->
+    <classPathEntry location="E:\mysql-connector-java-5.1.6.jar"/>
+    <!-- defaultModelType="flat" 简单模式 只生成一个entity和dao   -->
+    <context id="contextId" defaultModelType="flat">
+        <!-- genenat entity时,生成toString -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <commentGenerator>
+            <!-- 是否取消注释 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 是否生成注释代时间戳 -->
+            <property name="suppressDate" value="false"/>
+        </commentGenerator>
+        <!--数据库信息配置-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://39.98.235.127:3306/xzwd"
+                        userId="root" password="root"/>
+
+        <!--实体类生成位置-->
+        <javaModelGenerator targetPackage="com.py.entity" targetProject="src/main/java"/>
+        <!--xml生成位置-->
+        <sqlMapGenerator targetPackage="mybatis" targetProject="src/main/resources"/>
+        <!--dao生成位置-->
+        <javaClientGenerator targetPackage="com.py.dao" targetProject="src/main/java" type="XMLMAPPER"/>
+        <!--需要生成的表-->
+        <table domainObjectName="LoanOrder" tableName="app_loan_order" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+        <!--需要生成的表-->
+        <table domainObjectName="PayProceduresOrder" tableName="app_pay_procedures_order" enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+    </context>
+</generatorConfiguration>
